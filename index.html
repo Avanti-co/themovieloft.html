@@ -55,7 +55,7 @@
     <!-- Login/Register Form -->
     <div id="login-form">
         <h2>Login / Signup</h2>
-        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button onclick="register()">Register</button>
         <button onclick="login()">Login</button>
@@ -88,27 +88,39 @@
 
         // Authentication Functions
         function register() {
-            let email = document.getElementById('email').value;
+            let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
 
-            firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(() => {
-                alert("Registered successfully!");
-                showChat();
-            })
-            .catch(error => alert(error.message));
+            if (username && password) {
+                // Create a new user entry in Firebase Authentication
+                firebase.auth().createUserWithEmailAndPassword(username + "@example.com", password)
+                .then(() => {
+                    firebase.auth().currentUser.updateProfile({
+                        displayName: username
+                    });
+                    alert("Registered successfully!");
+                    showChat();
+                })
+                .catch(error => alert(error.message));
+            } else {
+                alert("Please enter both username and password.");
+            }
         }
 
         function login() {
-            let email = document.getElementById('email').value;
+            let username = document.getElementById('username').value;
             let password = document.getElementById('password').value;
 
-            firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(() => {
-                alert("Login successful!");
-                showChat();
-            })
-            .catch(error => alert(error.message));
+            if (username && password) {
+                firebase.auth().signInWithEmailAndPassword(username + "@example.com", password)
+                .then(() => {
+                    alert("Login successful!");
+                    showChat();
+                })
+                .catch(error => alert(error.message));
+            } else {
+                alert("Please enter both username and password.");
+            }
         }
 
         function logout() {
@@ -123,14 +135,14 @@
         function showChat() {
             document.getElementById('login-form').style.display = 'none';
             document.getElementById('chat-container').style.display = 'block';
-            document.getElementById('user-name').innerText = firebase.auth().currentUser.email;
+            document.getElementById('user-name').innerText = firebase.auth().currentUser.displayName;
             loadMessages();
         }
 
         // Send Messages
         function sendMessage() {
             let message = document.getElementById('msg').value;
-            let user = firebase.auth().currentUser.email;
+            let user = firebase.auth().currentUser.displayName;
 
             if (message.trim() === "") return;
 
@@ -169,3 +181,4 @@
 
 </body>
 </html>
+
