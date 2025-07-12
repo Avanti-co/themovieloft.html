@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Loft Cinema - Movie Day</title>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</script>
+ 
+  <style>
+    body { margin:0; font-family:sans-serif; background:#121212; color:#fff; }
+    header, footer { text-align:center; padding:20px; background:#1f1f1f; }
+    h1, h2 { color:#ffd700; }
+    .container { max-width:1000px; margin:auto; padding:20px; }
+    .card { background:#1e1e1e; border-radius:10px; padding:15px; margin-bottom:20px; }
+    .card img { width:100%; border-radius:10px; }
+    .movies { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .movie { text-align:center; }
+    .movie img { width:100%; height:300px; object-fit:cover; border-radius:10px; }
+    .movie h3 { margin:10px 0 5px; color:#ffd700; }
+    .movie p { margin:3px 0; }
+    .swiper { width:100%; height:250px; margin-top:20px; }
+    .swiper-slide { text-align:center; }
+    .swiper-slide img { width:150px; border-radius:10px; }
+  </style>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(to right, #000000, #333333);
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 2px solid #ffd700;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ffd700;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #ccc;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #222;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #ffd700;
+    }
+
+    .movie-item {
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .movie-item img, .movie-item video {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .movie-info {
+      margin-top: 10px;
+    }
+
+    footer {
+      background: #333;
+      text-align: center;
+      padding: 10px;
+      color: #ccc;
+      margin-top: 40px;
+    }
+
+    /* Sponsors circles */
+    .sponsor-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .sponsor-circle img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+h3{
+color: #ffd700;
+}
+  </style>
+
+
+</head>
+
+<body>
+
+  <header>
+    <h1>The Movie Loft</h1>
+    <p>Cinema</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Movies Showing Section -->
+    <div class="card">
+    
+    <img src="m.png" alt="Movie Schedule"></img>
+
+    </div>
+
+   <div class="card">
+      <h2>Screenings</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <!-- Replace with your 10 suggested movie image URLs -->
+          <div class="swiper-slide"><img src="m3.jpeg" alt="Suggested Movie 1"></div>
+
+          <div class="swiper-slide"><img src="m4.jpeg" alt="Suggested Movie 2"></div>
+          <div class="swiper-slide"><img src="m5.jpeg" alt="Suggested Movie 3"></div>
+          
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+      <!-- Movie 1 -->
+<div class="card">
+  <h2>Movie Schedule</h2>
+      <div class="movie-item" onclick="toggleVideo(this, 'm3.jpeg', 'm1.MOV')">
+        <div class="media">
+          <img src="m3.jpeg " alt="Movie 1 Poster">
+        </div>
+        <div class="movie-info">
+          <h3>Movie 1: Shotgun wedding</h3>
+          <p>Time: 08:20 - 10:00 | Duration: 1h 40min</p>
+        </div>
+      </div>
+</div>
+<div class="card">
+      <!-- Movie 2 -->
+      <div class="movie-item" onclick="toggleVideo(this, 'm4.jpeg', 'm.MOV')">
+        <div class="media">
+          <img src="m4.jpeg" alt="Movie 2 Poster">
+        </div>
+        <div class="movie-info">
+          <h3>Movie 2: insideous: the last key</h3>
+          <p>Time: 10:10 - 11:50 | Duration: 1h 40min</p>
+        </div>
+      </div>
+</div>
+
+<div class="card">
+      <!-- Movie 3 -->
+      <div class="movie-item" onclick="toggleVideo(this, 'm5.jpeg', 'v1.MOV')">
+        <div class="media">
+          <img src="m5.jpeg" alt="Movie 3 Poster">
+        </div>
+        <div class="movie-info">
+          <h3>Movie 3: Lift</h3>
+          <p>Time: 12:00 - 14:00 | Duration: 2h</p>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+
+
+   <div class="card">
+      <h2>Other Screenings</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <!-- Replace with your 10 suggested movie image URLs -->
+          <div class="swiper-slide"><img src="o1.jpeg" alt="Suggested Movie 1"></div>
+
+          <div class="swiper-slide"><img src="o2.jpeg" alt="Suggested Movie 2"></div>
+          <div class="swiper-slide"><img src="o3.jpeg" alt="Suggested Movie 3"></div>
+          <div class="swiper-slide"><img src="o4.jpeg" alt="Suggested Movie 4"></div>
+          <div class="swiper-slide"><img src="o5.jpeg" alt="Suggested Movie 5"></div>
+   <div class="swiper-slide"><img src="o6.jpeg" alt="Suggested Movie 6"></div>
+        
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- Sponsors Section -->
+    <div class="card" style="text-align: center;">
+      <h2>Sponsors</h2>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; margin-top: 20px;">
+        
+        <div style="background-color: #3f72af;" class="sponsor-circle">
+  <img src="l2.jpeg" alt="Avanti">
+</div>
+
+        
+        <div style="background-color: black;" class="sponsor-circle">
+          <img src="l1.jpeg" alt="Tikvah">
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2025 MovieLoft Cinema
+  </footer>
+
+  <!-- JavaScript -->
+
+  <script>
+    let currentPlaying = null;
+
+    function toggleVideo(container, posterUrl, videoUrl) {
+      const mediaDiv = container.querySelector('.media');
+
+      // If this video is already playing, restore to image
+      if (mediaDiv.querySelector('video')) {
+        mediaDiv.innerHTML = `<img src="${posterUrl}" alt="Movie Poster" style="width:100%; border-radius:10px;">`;
+        currentPlaying = null;
+        return;
+      }
+
+      // If another video is playing, restore it first
+      if (currentPlaying && currentPlaying !== container) {
+        const prevMediaDiv = currentPlaying.querySelector('.media');
+        const prevPoster = prevMediaDiv.getAttribute('data-poster');
+        prevMediaDiv.innerHTML = `<img src="${prevPoster}" alt="Movie Poster" style="width:100%; border-radius:10px;">`;
+      }
+
+      // Replace image with video
+      mediaDiv.setAttribute('data-poster', posterUrl);
+      mediaDiv.innerHTML = `
+        <video controls autoplay style="width:100%; border-radius:10px;">
+          <source src="${videoUrl}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      `;
+
+      const videoEl = mediaDiv.querySelector('video');
+
+      // When video ends, restore to image
+      videoEl.onended = () => {
+        mediaDiv.innerHTML = `<img src="${posterUrl}" alt="Movie Poster" style="width:100%; border-radius:10px;">`;
+        currentPlaying = null;
+      };
+
+      currentPlaying = container;
+    }
+  </script>
+
+  <script>
+    new Swiper('.swiper', {
+      slidesPerView: 2,
+      spaceBetween: 1,
+      pagination: { el: '.swiper-pagination' },
+      loop: true,
+      autoplay: { delay: 2500 }
+    });
+  </script>
+
+
+</body>
+</html>
